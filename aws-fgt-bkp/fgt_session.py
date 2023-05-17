@@ -13,7 +13,7 @@ def lambda_handler(event, context):
         '''
 
         #  Firewall list
-        fgt_fw = ['10.255.255.210']
+        fgt_fw = ['10.0.0.254']
         fgt_all_nodes = list()
 
         #  Firewall Connection info
@@ -24,7 +24,7 @@ def lambda_handler(event, context):
         fgt_bkp_path = '/tmp/'
 
         #  S3 info
-        aws_bucket_name = 'will-network-backups'
+        aws_bucket_name = 'bucket_name'
         aws_bucket_folder = 'firewalls/'
 
         #  Command  lines
@@ -37,7 +37,7 @@ def lambda_handler(event, context):
         '''
 
         #  Recover password from Secrets Manager
-        fgt_pwd = aws.secrets_mgr_get("prod/fgt_backup", "sa-east-1")
+        fgt_pwd = aws.secrets_mgr_get("secret_name", "sa-east-1")
 
 
         '''
